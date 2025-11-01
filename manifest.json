@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "EasyDownloader",
+  "description": "通过右键点击下载页面上的资源，如图片、视频、表格数据等",
+  "version": "1.0",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "downloads"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "action": {
+    "default_title": "EasyDownloader"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["dialog.html", "dialog.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
